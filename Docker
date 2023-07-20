@@ -1,0 +1,39 @@
+// O QUE É O DOCKER:
+- É um software que reduz a complexidade de setup de aplicações.
+- Onde configuramos containers, que são como servidores para rodar nossas aplicações.
+- Com facilidade, podemos criar ambientes independentes e que funcionam em diversos SO's.
+- Deixa nossos projetos mais perfomáticos.
+
+// POR QUÊ O DOCKER:
+- Proporciona mais velocidade na configuração do ambiente de um dev.
+- Pouco tempo gasto em manutenção, containers são executados como configurados.
+- Performance para executar aplicação, mais perfomático que uma VM.
+- Nos livra da Matrix from Hell. (Configuramos apenas um vez e podemos executar com apenas um comando em qualquer computador que tenha o docker instalado)
+
+// O QUE SÃO CONTAINERS:
+- Um pacote de código que pode executar uma ação, por exemplo rodar uma aplicação de Node.js, PHP, Python e etc.
+- Nossos projetos serão executados dentro dos containers que criarmos/utilizarmos.
+- Containers utilizam imagens para poderem ser executados.
+- Múltiplos containers podem rodar juntos, exemplo: um para PHP e outro para MySQL.
+
+// CONTAINER X IMAGEM:
+- Imagem e container são recursos fundamentais do Docker.
+- Imagem é o projeto que será executado pelo container, todas as instruções estarão declaradas nela.
+- Container é o docker rodando alguma imagem, consequentemente executando algum código proposto por ela.
+- O fluxo é: programamos uma imagem e a executamos por meio de um container.
+
+// DOCKER COMPOSE:
+- Uma ferramenta para rodar múltiplos containers.
+- Teremos apenas um arquivo de configuração, que orquestra totalmente esta situação.
+- É uma forma de rodar múltiplos builds e runs com um comando.
+
+// DOCKER COMPOSE: ARQUIVO:
+- Version: Versão do compose
+- Services: Containers/serviços que vão rodar nessa aplicação.
+  - environment: definir variaveis de ambiente.
+  - env_file: definir variáveis de ambiente, a partir de um arquivo .env
+- Volumes: Possível adição de volumes.
+
+// COMANDOS:
+sudo systemctl restart docker.socket docker.service
+sudo chmod -R 777 caminho/da/pasta
