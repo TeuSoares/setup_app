@@ -1,0 +1,39 @@
+version: '3.8'
+
+networks:
+    app-network:
+      driver: bridge
+
+services:
+  web:
+    build: ./web
+    container_name: web
+    restart: unless-stopped
+    command: npm run dev
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./web:/usr/app
+    networks:
+      - app-network
+
+  composer:
+    image: composer:latest
+    container_name: composer
+    working_dir: /usr/server
+    volumes:
+      - ./server:/usr/share/nginx
+    networks:
+      - app-network
+  
+  server:
+    build: ./server
+    container_name: server
+    restart: unless-stopped
+    ports:
+      - "8888:80"
+    volumes:
+      - ./server:/usr/share/nginx
+    networks:
+      - app-network
+
