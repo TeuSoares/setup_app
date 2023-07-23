@@ -5,8 +5,8 @@ RUN docker-php-ext-configure gd --with-jpeg
 RUN docker-php-ext-install pdo pdo_mysql bcmath gd
 
 RUN apk add --no-cache pcre-dev $PHPIZE_DEPS \
-        && pecl install redis \
-        && docker-php-ext-enable redis.so
+    && pecl install redis \
+    && docker-php-ext-enable redis.so
 
 WORKDIR /var/www
 
