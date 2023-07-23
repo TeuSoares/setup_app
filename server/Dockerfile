@@ -19,6 +19,6 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 ENV XDEBUG_CONFIG="idekey=PHPSTORM"
 
-EXPOSE 9000
+EXPOSE 8000
 
 ENTRYPOINT ["php-fpm"]

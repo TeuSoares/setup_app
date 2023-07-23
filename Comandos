@@ -1,0 +1,3 @@
+sudo systemctl restart docker.socket docker.service
+sudo chmod -R 777 caminho/da/pasta
+docker-compose exec <container> bash
