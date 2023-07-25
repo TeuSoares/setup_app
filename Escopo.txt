@@ -1,0 +1,109 @@
+<!-- AGENDA -->
+
+// FUNCIONALIDADES:
+- Cadastro de tarefas
+- Atualizar tarefa existente
+- Excluir uma tarefa
+- Excluir todas as tarefas finalizadas
+- Marcar uma tarefa como concluída
+- Cadastro de usuário
+- Autenticação de usuário
+
+// TELAS:
+- Home (Tabela + Filtro (Tarefas de hoje, amanhã, essa semana, futuras, concluídas, atrasadas))
+- Formulário de cadastro de tarefas (Data, título, descrição)
+- Formulário de cadastro e edição de usuário
+- Login de usuário
+- Perfil do usuário
+
+// MODELAGEM BANCO DE DADOS:
+- tasks:
+    id_task (primary - uuid)
+    fk_id_user (foreign)
+    date (date)
+    title (varchar(80))
+    description (text)
+    status (varchar(10)) (aberta - concluida)
+
+- users:
+    id_user (primary - uuid)
+    name (varchar(64))
+    email (varchar(255))
+    password (varchar(255))
+
+// ABSTRAÇÃO:
+BACK-END:
+(Base)
+TModel: (Extends Model)
+TController: (Extends Controller)
+TRequest: (Extends FormRequest)
+TService: (Consome os métodos do TModel, a partir da instância)
+
+(Domain)
+User:
+    - Routes: (group /user)
+        - GET /show (Autenticação)
+        - POST /store (UserRequest)
+        - PUT /update (Autenticação) (UserRequest)
+        - DELETE /delete (Autenticação)
+    - Controller:
+        - Extends TController
+        - Cria a instância de UserService no atributo service
+        - Criar uma propriedade que seta o usuário logado
+        - show
+        - store
+        - update
+        - destroy
+    - Model:
+        - Extends TModel
+        - Utiliza a trait HasUuid
+        - hasMany(Task)
+    - Service:
+        - Cria a instância de User e atribui a propriedade model
+    Request:
+        - rules
+        - message
+Task:
+    - Routes: (Autenticação)
+        - GET /tasks/{filter}
+        - POST /createTask (TaskRequest)
+        - PUT /updateTask (TaskRequest)
+        - DELETE /deleteTask
+        - DELETE /deleteTasksCompleted
+        - PATCH /taskCompleted
+    - Controller:
+        - Extends TController
+        - Cria a instância de TaskService no atributo service
+        - Criar uma propriedade que seta o usuário logado
+        - getAlltasks
+        - createTask
+        - updateTask
+        - deleteTask
+        - deleteTasksCompleted
+        - taskCompleted
+    - Model:
+        - Extends TModel
+        - Utiliza a trait HasUuid
+        - belongsTo(User)
+    - Service:
+        - Cria a instância de Task e atribui a propriedade model
+    - Request:
+        - rules
+        - message
+Auth:
+    - Routes:
+        - POST /loginApi (Gerar token) (AuthRequest)
+        - POST /logoutApi (Remover token)
+    - Controller:
+        - Extends TController
+        - Cria a instância de AuthService no atributo service
+        - loginApi (Data: email, password)
+        - logoutApi
+    - Model:
+        - Extends TModel
+        - Utiliza a trait HasUuid
+    - Service:
+        - Cria a instância de Auth e atribui a propriedade model
+    - Request:
+        - rules
+        - message

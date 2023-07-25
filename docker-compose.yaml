@@ -19,7 +19,7 @@ services:
       - app-network
   
   php:
-    build: ./server
+    image: crmsolucoes/php-fpm-8.2:latest
     container_name: php
     restart: unless-stopped
     volumes:
@@ -32,7 +32,7 @@ services:
     container_name: nginx
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "8080:80"
     volumes:
       - ./server:/var/www/html
       - ./server/nginx/conf/default.conf:/etc/nginx/conf.d/default.conf
@@ -46,7 +46,6 @@ services:
     image: mcr.microsoft.com/mssql/server:2019-latest
     hostname: sqlsrv
     user: root
-    container_name: sqlsrv
     restart: unless-stopped
     environment:
       SA_PASSWORD: Pass@word
