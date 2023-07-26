@@ -1,0 +1,18 @@
+<?php
+
+namespace Domain\Models\$DOMAIN$;
+
+use Domain\Base\TRequest;
+
+class $CLASS_NAME$ extends TRequest {
+
+    public function rules()
+    {
+        return [];
+    }
+
+    public function messages()
+    {
+        return [];
+    }
+}

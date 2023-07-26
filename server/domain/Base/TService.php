@@ -23,4 +23,18 @@ class TService
     {
         return $this->model->deleteRecordByUuid($uuid);
     }
+
+    public function findRecord(string $column, string $operator, string $value)
+    {
+        return $this->findRecord($column, $operator, $value);
+    }
+
+    public function where(string $column, string $operator, string $value)
+    {
+        return $this->model->where($column, $operator, $value);
+    }
+
+    public function get(){
+        return $this->model->get();
+    }
 }

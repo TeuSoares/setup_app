@@ -8,10 +8,7 @@ class TModel extends Model
 {
     public function showByUuid($uuid)
     {
-        $query = $this->query();
-        $params = ['uuid' => $uuid];
-
-        return $this->filter($query, $params)->firstOrFail();
+        return $this->findByUuid($uuid)->firstOrFail();
     }
 
     public function updateRecordByUuid($uuid, array $data)
@@ -22,5 +19,20 @@ class TModel extends Model
     public function deleteRecordByUuid($uuid)
     {
         return $this->findByUuid($uuid)->delete();
+    }
+
+    public function findRecord(string $column, string $operator, string $value)
+    {
+        return $this->where($column, $operator, $value)->get();
+    }
+
+    public function where(string $column, string $operator, string $value)
+    {
+        return $this->where($column, $operator, $value);
+    }
+
+    public function get()
+    {
+        return $this->get();
     }
 }

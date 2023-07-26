@@ -1,0 +1,16 @@
+<?php
+
+namespace Domain\Models\$DOMAIN$;
+
+use Domain\Base\TModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use YourAppRocks\EloquentUuid\Traits\HasUuid;
+
+class $CLASS_NAME$ extends TModel {
+
+    use HasUuid, HasFactory;
+
+    protected $table = null;
+    protected $primaryKey = null;
+    protected $fillable = [];
+}

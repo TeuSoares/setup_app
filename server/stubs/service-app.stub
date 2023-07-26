@@ -1,0 +1,15 @@
+<?php
+
+namespace Domain\Models\$DOMAIN$;
+
+use Domain\Base\TService;
+
+class $CLASS_NAME$ extends TService {
+
+    protected $model;
+
+    public function __construct()
+    {
+        $this->model = null;
+    }
+}
