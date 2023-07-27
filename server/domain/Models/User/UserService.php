@@ -1,15 +1,15 @@
 <?php
 
-namespace Domain\Models\$DOMAIN$;
+namespace Domain\Models\User;
 
 use Domain\Base\TService;
 
-class $CLASS_NAME$ extends TService 
+class UserService extends TService 
 {
     protected $model;
 
     public function __construct()
     {
-        $this->model = null;
+        $this->model = new User();
     }
 }

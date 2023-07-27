@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use Domain\Models\User\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/home', function () {
-    return response('Hello World', 200);
+Route::prefix("/user")->group(function() {
+    Route::get('/show',  [UserController::class, "show"])->name("user.show");
 });

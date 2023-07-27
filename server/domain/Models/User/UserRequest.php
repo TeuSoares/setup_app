@@ -1,10 +1,10 @@
 <?php
 
-namespace Domain\Models\$DOMAIN$;
+namespace Domain\Models\User;
 
 use Domain\Base\TRequest;
 
-class $CLASS_NAME$ extends TRequest 
+class UserRequest extends TRequest 
 {
     public function rules()
     {
