@@ -3,3 +3,4 @@ sudo chmod -R 777 caminho/da/pasta
 docker-compose exec <container> bash
 sudo lsof -i tcp:8080 // Ver processos das portas
 sudo kill -9 <PID> // Eliminar o processo
+php artisan config:cache
