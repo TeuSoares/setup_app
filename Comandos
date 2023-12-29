@@ -19,3 +19,9 @@ crontab -e
 sudo chown -R $USER:$USER ./folder-name // Permissão
 tail -f  storage/logs/laravel.log
 sudo vim .zshrc -> alias apelido="comando" // Configurar um alias para um determinado comando
+
+// PROGRAMAS
+- Flameshot
+- Terminator
+- FortClient
+- Oracle VM Virtualbox
