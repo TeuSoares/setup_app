@@ -1,6 +1,21 @@
+// VIM:
+sudo vim /etc/hosts
+i: inserção
+: + x (Sair)
+
+// LINUX:
+cat arquivo
 sudo systemctl restart docker.socket docker.service
+sudo systemctl restart nginx
 sudo chmod -R 777 caminho/da/pasta
 docker-compose exec <container> bash
 sudo lsof -i tcp:8080 // Ver processos das portas
 sudo kill -9 <PID> // Eliminar o processo
-php artisan config:cache
+docker rm -f $(docker ps -a -q) -f
+ls -la // Arquivos ocultos
+exit // Encerrar conexão
+hostname -I | cut -d ' ' -f1
+crontab -e
+sudo chown -R $USER:$USER ./folder-name // Permissão
+tail -f  storage/logs/laravel.log
+sudo vim .zshrc -> alias apelido="comando" // Configurar um alias para um determinado comando
